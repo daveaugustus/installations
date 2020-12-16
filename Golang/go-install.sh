@@ -11,12 +11,24 @@ wget $go_download_URL
 # Find the go which ends with tar.gz
 go_tar_file=`find ./ -name "go1*tar.gz" | cut -d\/ -f2`
 
+
+
 # Untar the file and put into /usr/local/
-# tar -C /usr/local -xzf $go_tar_file
+tar -C /usr/local -xzf $go_tar_file
 
 #Golang Path setup
 user=`whoami`
-bashrc_file='/home/'$user'/abc'
 
-echo "Printing user directory"
-echo $bashrc_file
+# Create Go workspace folder if it doesn't exists
+
+if [ ! -d /home/$user/Go_Work ]; then
+  mkdir -p /home/$user/Go_Work/bin /home/$user/Go_Work/src /home/$user/Go_Work/pkg;
+fi
+
+# mkdir /home/$user/Go_Work
+# mkdir 
+
+
+rm $go_tar_filex
+
+echo installed
